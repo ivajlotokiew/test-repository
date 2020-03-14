@@ -1,0 +1,18 @@
+{
+  "name": "ivaylo/test-project",
+  "description": "Test site",
+  "type": "dev project",
+  "license": "1.0",
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "aws/aws-sdk-php": "*",
+    "wpackagist-plugin/akismet": "dev-trunk",
+    "wpackagist-plugin/wordpress-seo": ">=7.0.2"
+  }
+}
