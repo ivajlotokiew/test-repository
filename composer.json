@@ -13,6 +13,7 @@
   "require": {
     "aws/aws-sdk-php": "*",
     "wpackagist-plugin/akismet": "dev-trunk",
-    "wpackagist-plugin/wordpress-seo": ">=7.0.2"
+    "wpackagist-plugin/wordpress-seo": ">=7.0.2",
+    "wpackagist-plugin/nextend-facebook-connect": "dev-trunk"
   }
 }

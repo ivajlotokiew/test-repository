@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b6b3b67134438bb3e679316a90ce65c",
+    "content-hash": "ece59c46a3d26a0d518d5c0d2c8ed6a9",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -690,6 +690,25 @@
             "time": "2020-03-12T20:41:25+00:00"
         },
         {
+            "name": "wpackagist-plugin/nextend-facebook-connect",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/nextend-facebook-connect/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/nextend-facebook-connect.zip?timestamp=1568960282"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/nextend-facebook-connect/",
+            "time": "2019-09-20T06:18:02+00:00"
+        },
+        {
             "name": "wpackagist-plugin/wordpress-seo",
             "version": "dev-trunk",
             "source": {
@@ -713,7 +732,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "wpackagist-plugin/akismet": 20
+        "wpackagist-plugin/akismet": 20,
+        "wpackagist-plugin/nextend-facebook-connect": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

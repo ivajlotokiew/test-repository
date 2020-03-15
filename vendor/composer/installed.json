@@ -705,6 +705,27 @@
         "homepage": "https://wordpress.org/plugins/akismet/"
     },
     {
+        "name": "wpackagist-plugin/nextend-facebook-connect",
+        "version": "dev-trunk",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/nextend-facebook-connect/",
+            "reference": "trunk"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/nextend-facebook-connect.zip?timestamp=1568960282"
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "time": "2019-09-20T06:18:02+00:00",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/nextend-facebook-connect/"
+    },
+    {
         "name": "wpackagist-plugin/wordpress-seo",
         "version": "dev-trunk",
         "version_normalized": "9999999-dev",
