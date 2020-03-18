@@ -1,15 +1,20 @@
 <style>
     .product-container {
-        border: 4px solid black;
+        /*border: 1px solid black;*/
         border-radius: 5px;
-        background: rgb(238,228,202);
+        background: rgb(238, 228, 202);
         height: 100px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        padding-top: 15px;
         cursor: pointer;
     }
 
+    .product-container:hover {
+        background: rgb(230, 220, 195);;
+    }
+
     .product-title {
-        font-size: 25px;
+        font-size: 22px;
         font-weight: bold;
         margin-left: 15px;
     }
@@ -37,16 +42,13 @@
 
 </style>
 
-<div class="form-group">
-    <input data-provide="datepicker">
-    <input type="button" name="down" id="downBtn" value="Down"/>
-</div>
 <div class="main-container">
 
 </div>
 <div id="bottom-position" class="form-group">
-    <label for="eProducts">Apply all: </label>
-    <input type="button" name="name" id="eProducts" value="Apply"/>
+    <label for="eProducts">
+        <input type="button" name="name" id="eProducts" value="Apply changes"/>
+    </label>
 </div>
 
 <script type="text/javascript">
@@ -56,7 +58,9 @@
     let $mainContainer = jQuery('.main-container');
     let $body = jQuery("body");
     jQuery(window).on('load', function () {
+
         renderProducts();
+
         jQuery(".main-container").on("click", ".product-container", function () {
             let productId = jQuery(this).data("product_id");
             if (editedProducts.hasOwnProperty(productId)) {
@@ -80,14 +84,10 @@
         })
     });
 
-    /**
-     *
-     * @param {Product} product
-     */
     function renderProducts() {
         $mainContainer.find(".product-container").remove();
         for (let key in products) {
-            if (products.hasOwnProperty(key) && editedProducts.hasOwnProperty(products[key].id)) {
+            if (editedProducts.hasOwnProperty(products[key].id)) {
                 $mainContainer
                     .append(productBadge(editedProducts[products[key].id]));
             } else {
@@ -161,8 +161,9 @@
     function getProduct(productId) {
         let getProduct = Product.getProduct(productId);
         getProduct.then((response) => {
+                console.log('response');
+                console.log(response);
                 let product = Product.bindProductObject(response[0]);
-                console.log(product);
                 formEditProduct(product);
             },
             (err) => {
@@ -186,7 +187,9 @@
     }
 
     function storeEditedProducts(editedProduct) {
-        editedProducts[editedProduct.id] = editedProduct;
+        if (!editedProducts.hasOwnProperty(editedProducts.id)) {
+            editedProducts[editedProduct.id] = editedProduct;
+        }
     }
 
     /**
