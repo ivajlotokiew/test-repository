@@ -39,10 +39,27 @@
         float: right;
     }
 
+    .main-title {
+        font-size: 40px;
+        font-weight: 600;
+    }
+
+    .products-container {
+        height: 600px;
+        overflow: auto;
+    }
+
+    #bottom-position {
+        margin-top: 15px;
+    }
 
 </style>
 
 <div class="main-container">
+    <div class="main-title">Products</div>
+    <div class="products-container">
+        <div class="products-wrapper"></div>
+    </div>
 
 </div>
 <div id="bottom-position" class="form-group">
@@ -55,13 +72,59 @@
     let editedProducts = {};
     let categories = <?= json_encode($params['categories']); ?>;
     let products = <?= json_encode($params['products']); ?>;
-    let $mainContainer = jQuery('.main-container');
+    let $productsContainer = jQuery('.products-container');
+    let $productsWrapper = jQuery('.products-wrapper');
+    let promise;
     let $body = jQuery("body");
+    let ajaxDataObj = {
+        'action': 'get_all_products',
+        'offset': 0,
+        'length': 8
+    };
+    let ajaxCompleted = true;
     jQuery(window).on('load', function () {
 
-        renderProducts();
+        renderProducts(products);
 
-        jQuery(".main-container").on("click", ".product-container", function () {
+        $productsContainer.scroll(function () {
+            jQuery.when(promise).then(function () {
+                let topPoint = $productsContainer.scrollTop();
+                let bottomVisiblePoint = $productsContainer.height();
+                let overallHeight = $productsWrapper.height();
+                // console.log(topPoint);
+                // console.log(bottomVisiblePoint);
+                // console.log(overallHeight);
+
+                if ((topPoint + bottomVisiblePoint >= overallHeight) && ajaxCompleted) {
+                    ajaxCompleted = false;
+                    ajaxDataObj.offset += 4;
+                    ajaxDataObj.length = ajaxDataObj.offset + 4;
+                    getAllProducts();
+                }
+            });
+        });
+
+        function getAllProducts() {
+            promise = jQuery.ajax({
+                url: ajax_object.ajaxurl,
+                type: 'POST',
+                dataType: 'Json',
+                data: ajaxDataObj,
+                success: function (products) {
+                    if (products.constructor === Array && products.length > 0) {
+                        ajaxCompleted = true;
+                        renderProducts(products);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    ajaxCompleted = true;
+                    alert("Status: " + textStatus);
+                    alert("Error: " + errorThrown);
+                }
+            });
+        }
+
+        $productsContainer.on("click", ".product-container", function () {
             let productId = jQuery(this).data("product_id");
             if (editedProducts.hasOwnProperty(productId)) {
                 formEditProduct(editedProducts[productId]);
@@ -84,14 +147,13 @@
         })
     });
 
-    function renderProducts() {
-        $mainContainer.find(".product-container").remove();
+    function renderProducts(products) {
         for (let key in products) {
             if (editedProducts.hasOwnProperty(products[key].id)) {
-                $mainContainer
+                $productsWrapper
                     .append(productBadge(editedProducts[products[key].id]));
             } else {
-                $mainContainer
+                $productsWrapper
                     .append(productBadge(Product.bindProductObject(products[key])));
             }
         }
@@ -141,7 +203,7 @@
                     label: "Edit",
                     className: 'btn-info',
                     callback: function () {
-                        let category_name = $("#category_name :selected").text();
+                        let category_name = jQuery("#category_name :selected").text();
                         let data = jQuery("#edit-form").serializeArray();
                         data.push({name: "category_name", value: category_name});
                         let product = objectifyForm(data);

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ece59c46a3d26a0d518d5c0d2c8ed6a9",
+    "content-hash": "95b0140668a4c4d0e22f9ace4e0aa4e8",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -690,6 +690,25 @@
             "time": "2020-03-12T20:41:25+00:00"
         },
         {
+            "name": "wpackagist-plugin/if-menu",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/if-menu/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/if-menu.zip?timestamp=1583323543"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/if-menu/",
+            "time": "2020-03-04T12:05:43+00:00"
+        },
+        {
             "name": "wpackagist-plugin/nextend-facebook-connect",
             "version": "dev-trunk",
             "source": {
@@ -733,7 +752,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "wpackagist-plugin/akismet": 20,
-        "wpackagist-plugin/nextend-facebook-connect": 20
+        "wpackagist-plugin/nextend-facebook-connect": 20,
+        "wpackagist-plugin/if-menu": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

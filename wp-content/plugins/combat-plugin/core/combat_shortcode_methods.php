@@ -18,10 +18,8 @@ function combat_home_page()
 //add_shortcode('combat_products_page', 'combat_products_page');
 function combat_products_page()
 {
-    $products = combat_call_api("product/allProducts");
-    $categories = combat_call_api("category/allCategories");
+    $products = combat_call_api("product/allProducts", ['offset' => 0, 'length' => 7]);
     $params['products'] = $products['body'];
-    $params['categories'] = $categories['body'];
     $view_path = dirname(__FILE__) . '/../views/products_page.phtml';
 
     return combat_render_view($view_path, $params);
