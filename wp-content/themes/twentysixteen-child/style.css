@@ -8,9 +8,13 @@ Template: twentysixteen
 Version: 1.0.0
 Text Domain: twentysixteen-child
 */
+/*#ddcca8*/
+#masthead.site-header {
+    padding: 2.25em 4.5455%;
+}
 
 body > div#page {
-    width: 70%;
+    width: 65%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -22,3 +26,27 @@ body > div#page {
 #content .form-container {
     height: 350px;
 }
+
+input.com-input-fields {
+    width: 320px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+div.com-btn-container {
+    position: relative;
+}
+
+div.com-btn-container > input.com-btn {
+    position: absolute;
+    background-color: #4f4f4f;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    left: 378px;
+    top: 5px;
+}
+
+label.com-label-indent {
+    padding-right: 0;
+}
+

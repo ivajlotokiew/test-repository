@@ -55,27 +55,31 @@ if ($_POST) {
     <form method="post">
         <div>
             <div>
-                <label for="txtUsername">Username
-                    <input id="txtUsername" name="txtUsername" placeholder="Username"/>
-                </label>
+                <label for="txtUsername" class="com-label-indent col-sm-2">Username</label>
+                <input type="text" class="com-input-fields" name="txtUsername" id="txtUsername" value=""
+                       autocapitalize="off" placeholder="Username"/>
             </div>
             <div>
-                <label for="txtEmail">Email
-                    <input id="txtEmail" name="txtEmail" placeholder="Email"/>
-                </label>
+                <label for="txtEmail" class="com-label-indent col-sm-2">Email</label>
+                <input type="text" class="com-input-fields" name="txtEmail" id="txtEmail" value="" autocapitalize="off"
+                       placeholder="Email"/>
             </div>
             <div>
-                <label for="txtPassword">Password
-                    <input type="password" id="txtPassword" name="txtPassword" placeholder="Password"/>
-                </label>
+                <label for="txtPassword" class="com-label-indent col-sm-2">Password</label>
+                <input type="password" class="com-input-fields" name="txtPassword" id="txtPassword" value=""
+                       autocapitalize="off" placeholder="Password"/>
             </div>
             <div>
-                <label for="txtConfirmPassword">Confirm password
-                    <input type="password" id="txtConfirmPassword" name="txtConfirmPassword"
-                           placeholder="Confirm password"/>
-                </label>
+                <label for="txtConfirmPassword" class="com-label-indent col-sm-2">Confirm password</label>
+                <input type="password" class="com-input-fields" name="txtConfirmPassword" id="txtConfirmPassword"
+                       value="" autocapitalize="off" placeholder="Confirm password"/>
             </div>
         </div>
-        <input type="submit" name="btnSubmit"/>
+        <div class="com-btn-container">
+            <input type="submit" class="com-btn" name="btnSubmit" value="Register"/>
+        </div>
     </form>
 </div>
+
+
+

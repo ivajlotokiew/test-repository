@@ -3,7 +3,7 @@ body.login div#login p#backtoblog {
 }
 
 body.login {
-    background-image: url('assets/images/2020-square-2.png');
+    background-image: url('assets/images/colors.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -16,3 +16,4 @@ body.login {
 .login #nav > a {
     color: aliceblue;
 }
+

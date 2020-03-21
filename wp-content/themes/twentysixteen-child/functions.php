@@ -67,15 +67,17 @@ function my_registration_page_redirect()
 add_filter('init', 'my_registration_page_redirect');
 
 
-function wpb_new_menu_conditions( $conditions ) {
+// theme's functions.php or plugin file
+function my_new_menu_conditions($conditions) {
     $conditions[] = array(
-        'name'    =>  'If user is logged in', // name of the condition
-        'condition' =>  function($item) {          // callback - must return TRUE or FALSE
-            return is_user_logged_in();
+        'id'        =>  'register-page',                                  // unique ID for the rule
+        'name'      =>  __('is register page', 'test.local/register'),    // name of the rule
+        'condition' =>  function($item) {                                 // callback - must return Boolean
+            return is_page('80');
         }
     );
 
     return $conditions;
 }
 
-add_filter( 'if_menu_conditions', 'wpb_new_menu_conditions' );
+add_filter('if_menu_conditions', 'my_new_menu_conditions');
