@@ -91,10 +91,6 @@
                 let topPoint = $productsContainer.scrollTop();
                 let bottomVisiblePoint = $productsContainer.height();
                 let overallHeight = $productsWrapper.height();
-                // console.log(topPoint);
-                // console.log(bottomVisiblePoint);
-                // console.log(overallHeight);
-
                 if ((topPoint + bottomVisiblePoint >= overallHeight) && ajaxCompleted) {
                     ajaxCompleted = false;
                     ajaxDataObj.offset += 4;

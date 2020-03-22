@@ -1,2 +1,5 @@
-
 /wp-content/plugins/if-menu
+/wp-content/uploads
+/vendor/*
+/vendor
+

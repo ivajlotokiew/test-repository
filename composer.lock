@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "59e824e235220730a8e1d276d036a9f085486512"
+                "reference": "9b4a110de75631339329a4ca45ebbaf7ddd1f7f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/59e824e235220730a8e1d276d036a9f085486512",
-                "reference": "59e824e235220730a8e1d276d036a9f085486512",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9b4a110de75631339329a4ca45ebbaf7ddd1f7f9",
+                "reference": "9b4a110de75631339329a4ca45ebbaf7ddd1f7f9",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-03-13T18:09:32+00:00"
+            "time": "2020-03-20T18:10:54+00:00"
         },
         {
             "name": "composer/installers",
@@ -680,14 +680,14 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/akismet.zip?timestamp=1584045685"
+                "url": "https://downloads.wordpress.org/plugin/akismet.zip?timestamp=1584478127"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/akismet/",
-            "time": "2020-03-12T20:41:25+00:00"
+            "time": "2020-03-17T20:48:47+00:00"
         },
         {
             "name": "wpackagist-plugin/if-menu",
