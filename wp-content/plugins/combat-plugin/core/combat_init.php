@@ -6,7 +6,7 @@
  * Time: 17:13
  */
 
-function combat_render_view($path, $params){
+function combat_render_view($path, $params = []){
     ob_start();
     include($path);
     $view = ob_get_contents();

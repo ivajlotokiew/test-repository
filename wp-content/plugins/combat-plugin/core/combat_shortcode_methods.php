@@ -28,3 +28,9 @@ function combat_products_page()
 
     return combat_render_view($view_path, $params);
 }
+
+//add_shortcode('combat_register_user', 'combat_register_user');
+function combat_register_user() {
+    $view_path = get_theme_file_path() . '/signup.php';
+    return combat_render_view($view_path);
+}

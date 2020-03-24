@@ -25,7 +25,7 @@ body > div#page {
 }
 
 #content .form-container {
-    height: 350px;
+    height: 550px;
 }
 
 input.com-input-fields {
@@ -51,3 +51,6 @@ label.com-label-indent {
     padding-right: 0;
 }
 
+.form-signin-heading {
+    margin-bottom: 20px;
+}
