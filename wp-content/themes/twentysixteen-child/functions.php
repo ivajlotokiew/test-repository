@@ -111,18 +111,3 @@ function redirect_logged_user()
 }
 
 add_action('get_header', 'redirect_logged_user');
-
-
-//function check_user_role( $atts, $content = null ) {
-//    extract( shortcode_atts( array(
-//        'role' => 'role' ), $atts ) );
-//
-//    $user = wp_get_current_user();
-//    $roles = explode(',', $user);
-//    $allowed_roles = array($user);
-//    if( array_intersect($allowed_roles, $user->roles ) ) {
-//        return $content;
-//    }
-//}
-//
-//add_shortcode( 'user_role', 'check_user_role' );
