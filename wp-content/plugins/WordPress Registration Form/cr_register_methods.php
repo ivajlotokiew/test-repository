@@ -68,8 +68,9 @@ function wordpress_user_registration_form_completion()
 
         );
 
-        $user = wp_insert_user($userdata);
-        wp_redirect(home_url('/login'));
+        $userId = wp_insert_user($userdata);
+//        apply_filters('send_email_new_user', $userId);
+        wp_redirect(home_url('/wp-login.php/?registration=success'));
         exit();
     //    echo 'Complete WordPress Registration. Goto <a href="' . get_site_url() . '/wp-login.php">login page</a>.';
     }

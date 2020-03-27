@@ -49,6 +49,7 @@ function add_loginout_link($items, $args)
     } elseif (!is_user_logged_in() && $args->theme_location == 'primary') {
         $items .= '<li><a href="' . site_url('wp-login.php') . '">Log In</a></li>';
     }
+
     return $items;
 }
 
@@ -111,3 +112,12 @@ function redirect_logged_user()
 }
 
 add_action('get_header', 'redirect_logged_user');
+
+
+function session_flash_messages() {
+    if(!session_id()) {
+        session_start();
+    }
+}
+
+add_action('init', 'session_flash_messages', 1);

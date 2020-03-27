@@ -15,3 +15,6 @@ add_shortcode('wp_registration_form', 'wp_custom_shortcode_registration');
 
 //Custom Validation Field Method
 add_filter('registration_errors', 'custom_validation_error_method', 10, 3);
+
+
+//add_filter('send_email_new_user', 'send_welcome_mail', 10, 1);

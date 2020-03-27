@@ -15,6 +15,7 @@
     "wpackagist-plugin/akismet": "dev-trunk",
     "wpackagist-plugin/wordpress-seo": ">=7.0.2",
     "wpackagist-plugin/nextend-facebook-connect": "dev-trunk",
-    "wpackagist-plugin/if-menu": "dev-trunk"
+    "wpackagist-plugin/if-menu": "dev-trunk",
+    "wpackagist-plugin/wp-mail-smtp": "dev-trunk"
   }
 }
