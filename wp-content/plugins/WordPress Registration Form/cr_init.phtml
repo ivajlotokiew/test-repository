@@ -1,0 +1,12 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ivaylo
+ * Date: 28.3.2020 г.
+ * Time: 12:48
+ */
+
+function my_custom_register_stylesheet()
+{
+    wp_enqueue_style('custom-register', plugin_dir_url( __FILE__ ) . 'public/css/style-register.css');
+}

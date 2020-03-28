@@ -12,19 +12,31 @@ function wordpress_custom_registration_form($first_name, $last_name, $username, 
     echo '
     <div class="register-container">
     <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
-        <label for="fname">First Name :</label> 
-        <input type="text" name="fname" value="' . (isset($_POST['fname']) ? $first_name : null) . '">
-        <label for="lname">Last Name :</label>
-        <input type="text" name="lname" value="' . (isset($_POST['lname']) ? $last_name : null) . '">
-        <label for="username">Username: <strong>*</strong></label>
-        <input type="text" name="username" value="' . (isset($_POST['username']) ? $username : null) . '">
-        <label for="password">Password: <strong>*</strong></label>
-        <input type="password" name="password" value="' . (isset($_POST['password']) ? $password : null) . '">
-        <label for="cpassword">Confirm password: <strong>*</strong></label>
-        <input type="password" name="cpassword" value="' . (isset($_POST['cpassword']) ? $confirm_password : null) . '">
-        <label for="email">Email: <strong>*</strong></label>
-        <input type="text" name="email" value="' . (isset($_POST['email']) ? $email : null) . '">
-       <input type="submit" name="submit" value="Register"/>
+        <div>
+            <label for="fname">First Name :</label> 
+            <input type="text" class="cr-form-input" name="fname" value="' . (isset($_POST['fname']) ? $first_name : null) . '">
+        </div>
+        <div>
+            <label for="lname">Last Name :</label>
+            <input type="text"  class="cr-form-input" name="lname" value="' . (isset($_POST['lname']) ? $last_name : null) . '">
+        </div>
+        <div>
+            <label for="username">Username: <strong>*</strong></label>
+            <input type="text" class="cr-form-input" name="username" value="' . (isset($_POST['username']) ? $username : null) . '">
+        </div>
+        <div>
+            <label for="password">Password: <strong>*</strong></label>
+            <input type="password" class="cr-form-input" name="password" value="' . (isset($_POST['password']) ? $password : null) . '">
+        </div>
+        <div>
+            <label for="cpassword">Confirm password: <strong>*</strong></label>
+            <input type="password" class="cr-form-input" name="cpassword" value="' . (isset($_POST['cpassword']) ? $confirm_password : null) . '">
+        </div>
+        <div>
+            <label for="email">Email: <strong>*</strong></label>
+            <input type="text" class="cr-form-input" name="email" value="' . (isset($_POST['email']) ? $email : null) . '">
+        </div>
+       <input type="submit" class="btn button-primary" name="submit" value="Register"/>
     </form>
     </div>
     ';
