@@ -1,5 +1,14 @@
 <?php
 
+function session_flash_messages()
+{
+    if (!session_id()) {
+        session_start();
+    }
+}
+
+add_action('init', 'session_flash_messages', 1);
+
 function enqueue_parent_styles()
 {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
@@ -95,11 +104,12 @@ function filter_plugin_updates($value)
 add_filter('site_transient_update_plugins', 'filter_plugin_updates');
 
 
-add_action('get_header', 'do_output_buffer');
 function do_output_buffer()
 {
     ob_start();
 }
+
+add_action('get_header', 'do_output_buffer');
 
 
 //if user is logged and trying to access register page
@@ -114,10 +124,14 @@ function redirect_logged_user()
 add_action('get_header', 'redirect_logged_user');
 
 
-function session_flash_messages() {
-    if(!session_id()) {
-        session_start();
+function registration_success_message()
+{
+    if (isset($_SESSION['register'])) {
+        ?>
+            <script>jQuery("#loginform").prepend("<div>Successful registration!</div>")</script>
+        <?php
+        unset($_SESSION['register']);
     }
 }
 
-add_action('init', 'session_flash_messages', 1);
+add_action('login_form', 'registration_success_message');

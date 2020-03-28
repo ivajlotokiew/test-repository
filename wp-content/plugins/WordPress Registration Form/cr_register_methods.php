@@ -69,10 +69,13 @@ function wordpress_user_registration_form_completion()
         );
 
         $userId = wp_insert_user($userdata);
-//        apply_filters('send_email_new_user', $userId);
-        wp_redirect(home_url('/wp-login.php/?registration=success'));
+
+        if (!isset($_SESSION['register'])) {
+            $_SESSION['register'] = 'Successful registration!';
+        }
+
+        wp_redirect(home_url('/login'));
         exit();
-    //    echo 'Complete WordPress Registration. Goto <a href="' . get_site_url() . '/wp-login.php">login page</a>.';
     }
 }
 
