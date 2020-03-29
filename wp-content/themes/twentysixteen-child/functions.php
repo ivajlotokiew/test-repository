@@ -56,7 +56,7 @@ function add_loginout_link($items, $args)
     if (is_user_logged_in() && $args->theme_location == 'primary') {
         $items .= '<li><a href="' . wp_logout_url() . '">Log Out</a></li>';
     } elseif (!is_user_logged_in() && $args->theme_location == 'primary') {
-        $items .= '<li><a href="' . site_url('wp-login.php') . '">Log In</a></li>';
+        $items .= '<li><a href="' . site_url('/login') . '">Log In</a></li>';
     }
 
     return $items;
@@ -85,6 +85,14 @@ function my_new_menu_conditions($conditions)
         'name' => __('is register page', 'test.local/register'),   // name of the rule
         'condition' => function ($item) {                                // callback - must return Boolean
             return is_page('80');
+        }
+    );
+
+    $conditions[] = array(
+        'id' => 'welcome-page',                                      // unique ID for the rule
+        'name' => __('is welcom page', 'test.local/welcome-page'),   // name of the rule
+        'condition' => function ($item) {                             // callback - must return Boolean
+            return is_page('welcome-page');
         }
     );
 

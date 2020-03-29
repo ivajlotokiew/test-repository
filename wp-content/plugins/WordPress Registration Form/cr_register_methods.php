@@ -11,6 +11,7 @@ function wordpress_custom_registration_form($first_name, $last_name, $username, 
     global $username, $password, $email, $first_name, $last_name;
     echo '
     <div class="register-container">
+    <h1>Register account</h1>
     <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
         <div>
             <label for="fname">First Name :</label> 

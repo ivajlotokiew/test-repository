@@ -9,15 +9,46 @@ Version: 1.0.0
 Text Domain: twentysixteen-child
 */
 
-/*#ddd2ad*/
-#masthead.site-header {
-    padding: 2.25em 4.5455%;
-}
-
-body > div#page {
+body:not(.page-template-page-welcome-page) > div#page {
     width: 65%;
     margin-left: auto;
     margin-right: auto;
+}
+
+body.custom-background.page-template-page-welcome-page {
+    background: #000000;
+}
+
+body.custom-background.page-template-page-welcome-page .site-inner,
+body.custom-background.page-template-page-welcome-page #masthead {
+    width: inherit;
+    max-width: 100%;
+}
+
+body.custom-background.page-template-page-welcome-page img {
+    width: 100%;
+}
+
+body.page-template-page-welcome-page > div#page {
+    margin: 0;
+}
+
+body.custom-background.page-template-page-welcome-page #masthead {
+    padding: 2.25em 4.5455% 0;
+}
+
+#join-btn {
+    color: #ffffff;
+}
+
+#join-btn-area {
+    text-align: center;
+    background-color: #030710;
+    padding: 15px;
+    color: #FFF;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 24px;
 }
 
 .entry-title {
@@ -53,4 +84,12 @@ label.com-label-indent {
 
 .form-signin-heading {
     margin-bottom: 20px;
+}
+
+body.page-template-page-welcome-page #page .header-image {
+    display: none;
+}
+
+#page .header-image {
+    margin-bottom: 0;
 }
