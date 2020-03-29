@@ -135,3 +135,14 @@ function registration_success_message()
 }
 
 add_action('login_form', 'registration_success_message');
+
+
+function redirect_non_logged_users_to_specific_page()
+{
+    if ( (is_page('55') || is_page('/home-page')) && !is_user_logged_in()) {
+        wp_redirect(site_url('/welcome-page', 301));
+        die();
+    }
+}
+
+add_action('template_redirect', 'redirect_non_logged_users_to_specific_page');
