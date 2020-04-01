@@ -15,6 +15,12 @@ body:not(.page-template-page-welcome-page) > div#page {
     margin-right: auto;
 }
 
+body.page-template-signup > div#page {
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 body.custom-background.page-template-page-welcome-page {
     background: #000000;
 }
@@ -25,16 +31,16 @@ body.custom-background.page-template-page-welcome-page #masthead {
     max-width: 100%;
 }
 
-body.custom-background.page-template-page-welcome-page img {
-    width: 100%;
-}
-
 body.page-template-page-welcome-page > div#page {
     margin: 0;
 }
 
-body.custom-background.page-template-page-welcome-page #masthead {
-    padding: 2.25em 4.5455% 0;
+body #masthead {
+    padding: 2.25em 0 50px 4.5455%;
+}
+
+body #main {
+    margin-bottom: 0;
 }
 
 #join-btn {
@@ -90,6 +96,101 @@ body.page-template-page-welcome-page #page .header-image {
     display: none;
 }
 
+div#primary.content-area {
+    margin-bottom: 50px;
+}
+
 #page .header-image {
     margin-bottom: 0;
+}
+
+.content-bottom-widgets .widget {
+    border: none;
+}
+
+aside#content-bottom-widgets {
+    margin-right: 18%;
+    margin-left: 18%;
+}
+
+/* Element | https://www.test.local/welcome-page/ */
+
+.netflix-logo {
+    width: 150px;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+/* Element | https://www.test.local/welcome-page/ */
+
+.sony-logo {
+    margin-left: 5px;
+}
+
+/* Element | https://www.test.local/welcome-page/ */
+
+.mercedes-logo {
+    width: 130px;
+    margin-left: 19px;
+}
+
+/* Element | https://www.test.local/welcome-page/ */
+
+.honda-logo {
+    width: 163px;
+    margin-left: 13px;
+}
+
+/* Element | https://www.test.local/welcome-page/ */
+
+.apple-logo {
+    width: 155px;
+}
+
+.bottom-first-row, .bottom-second-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+#site-navigation.main-navigation {
+    margin-right: 0;
+}
+
+#site-navigation  #menu-main-menu.primary-menu {
+    background: #030710;
+    border-radius: 25px 0 0 25px;
+}
+
+#site-navigation > .menu-main-menu-container > ul li > a {
+    color: #ffffff;
+}
+
+section#custom_html-2 > div.textwidget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer#colophon {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 0;
+    background: #030710;
+    height: 120px;
+}
+
+footer#colophon .widget-area {
+    width: 100%;
+}
+
+.site-header-main > .site-branding .site-title > a {
+    font-size: 45px;
+    color: #030710;;
+}
+
+.no-sidebar .entry-content {
+    margin-right: 5%;
+    margin-left: 5%;
 }

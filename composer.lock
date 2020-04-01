@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d057e3614e2bb1a4ad88f561491f1ff6",
+    "content-hash": "08425cf570df9ead817f7d0414fed99d",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "928a23e2ee7e195a66f93d0758895e26958c3b7d"
+                "reference": "706082d6a0e53c7656eca61866b456178112daf6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/928a23e2ee7e195a66f93d0758895e26958c3b7d",
-                "reference": "928a23e2ee7e195a66f93d0758895e26958c3b7d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/706082d6a0e53c7656eca61866b456178112daf6",
+                "reference": "706082d6a0e53c7656eca61866b456178112daf6",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-03-26T18:12:15+00:00"
+            "time": "2020-03-30T18:15:57+00:00"
         },
         {
             "name": "composer/installers",
@@ -680,14 +680,14 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/akismet.zip?timestamp=1584045685"
+                "url": "https://downloads.wordpress.org/plugin/akismet.zip?timestamp=1584478127"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/akismet/",
-            "time": "2020-03-12T20:41:25+00:00"
+            "time": "2020-03-17T20:48:47+00:00"
         },
         {
             "name": "wpackagist-plugin/if-menu",
@@ -718,14 +718,33 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/nextend-facebook-connect.zip?timestamp=1568960282"
+                "url": "https://downloads.wordpress.org/plugin/nextend-facebook-connect.zip?timestamp=1585308859"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/nextend-facebook-connect/",
-            "time": "2019-09-20T06:18:02+00:00"
+            "time": "2020-03-27T11:34:19+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/widget-context",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/widget-context/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/widget-context.zip?timestamp=1576861700"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/widget-context/",
+            "time": "2019-12-20T17:08:20+00:00"
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
@@ -737,14 +756,14 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.zip?timestamp=1583243489"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.zip?timestamp=1584541141"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wordpress-seo/",
-            "time": "2020-03-03T13:51:29+00:00"
+            "time": "2020-03-18T14:19:01+00:00"
         },
         {
             "name": "wpackagist-plugin/wp-mail-smtp",
@@ -773,7 +792,8 @@
         "wpackagist-plugin/akismet": 20,
         "wpackagist-plugin/nextend-facebook-connect": 20,
         "wpackagist-plugin/if-menu": 20,
-        "wpackagist-plugin/wp-mail-smtp": 20
+        "wpackagist-plugin/wp-mail-smtp": 20,
+        "wpackagist-plugin/widget-context": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

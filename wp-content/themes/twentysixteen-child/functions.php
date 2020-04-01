@@ -53,10 +53,12 @@ add_filter("login_redirect", "admin_login_redirect", 10, 3);
 
 function add_loginout_link($items, $args)
 {
-    if (is_user_logged_in() && $args->theme_location == 'primary') {
-        $items .= '<li><a href="' . wp_logout_url() . '">Log Out</a></li>';
-    } elseif (!is_user_logged_in() && $args->theme_location == 'primary') {
-        $items .= '<li><a href="' . site_url('/login') . '">Log In</a></li>';
+    if (!is_page([80, 147])) {
+        if (is_user_logged_in() && $args->theme_location == 'primary') {
+            $items .= '<li><a href="' . wp_logout_url() . '">Log Out</a></li>';
+        } elseif (!is_user_logged_in() && $args->theme_location == 'primary') {
+            $items .= '<li><a href="' . site_url('/login') . '">Log In</a></li>';
+        }
     }
 
     return $items;
@@ -136,7 +138,7 @@ function registration_success_message()
 {
     if (isset($_SESSION['register'])) {
         ?>
-            <script>jQuery("#loginform").prepend("<div>Successful registration!</div>")</script>
+        <script>jQuery("#loginform").prepend("<div>Successful registration!</div>")</script>
         <?php
         unset($_SESSION['register']);
     }
@@ -147,10 +149,26 @@ add_action('login_form', 'registration_success_message');
 
 function redirect_non_logged_users_to_specific_page()
 {
-    if ( (is_page('55') || is_page('/home-page')) && !is_user_logged_in()) {
+    if ((is_page('55') || is_page('/home-page') || is_page('/')) && !is_user_logged_in()) {
         wp_redirect(site_url('/welcome-page', 301));
-        die();
+        exit();
     }
 }
 
 add_action('template_redirect', 'redirect_non_logged_users_to_specific_page');
+
+
+function footer_widgets_init()
+{
+    register_sidebar(array(
+        'name' => __('Footer Sidebar', 'footer_widget'),
+        'id' => 'footer-sidebar',
+        'description' => __('Appears at the footer of all pages.'),
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+        'before_title' => '<h1>',
+        'after_title' => '</h1>',
+    ));
+}
+
+add_action('widgets_init', 'footer_widgets_init');
