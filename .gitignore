@@ -7,5 +7,6 @@
 /wp-content/plugins/nextend-facebook-connect
 /wp-content/plugins/wp-mail-smtp
 /wp-content/plugins/wordpress-seo
-/wp-content/*/package.json
-/*/package.json
+/wp-content/themes/twentytwenty/package.json
+/wp-content/themes/twentynineteen/package-lock.json
+/wp-content/plugins/combat-plugin/package-lock.json
