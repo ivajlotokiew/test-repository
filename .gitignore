@@ -7,3 +7,5 @@
 /wp-content/plugins/nextend-facebook-connect
 /wp-content/plugins/wp-mail-smtp
 /wp-content/plugins/wordpress-seo
+/wp-content/*/package.json
+/*/package.json
