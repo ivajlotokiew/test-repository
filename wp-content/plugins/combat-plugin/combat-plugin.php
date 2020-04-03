@@ -40,3 +40,5 @@ add_action('wp_ajax_upload_image', 'combat_ajax_upload_image');
 add_action('wp_ajax_nopriv_get_all_products', 'combat_ajax_get_all_products');
 add_action('wp_ajax_get_all_products', 'combat_ajax_get_all_products');
 
+add_action('wp_ajax_nopriv_delete_product', 'combat_ajax_delete_product');
+add_action('wp_ajax_delete_product', 'combat_ajax_delete_product');

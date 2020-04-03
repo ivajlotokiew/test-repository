@@ -33,4 +33,5 @@ function my_script_enqueuer()
     wp_register_script("ajaxHandle", WP_PLUGIN_URL . '/combat-plugin/public/js/combat-custom.js', array(), null, true);
     wp_enqueue_script('ajaxHandle');
     wp_localize_script('ajaxHandle', 'ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
+    wp_localize_script('ajaxHandle', 'siteUrl', array('pluginDir' => plugin_dir_url(__FILE__)));
 }

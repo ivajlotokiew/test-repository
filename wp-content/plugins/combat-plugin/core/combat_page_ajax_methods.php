@@ -65,3 +65,16 @@ function combat_ajax_get_all_products()
 
     die();
 }
+
+//add_action('wp_ajax_delete_product', 'combat_ajax_delete_product');
+function combat_ajax_delete_product() {
+    $product_id = $_REQUEST['id'];
+    if (isset($product_id) && !is_null($product_id = filter_var($product_id, FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE))) {
+        $result = combat_call_api("product/deleteProduct", array('id' => $product_id));
+        echo json_encode($result['body']);
+    } else {
+        combat_ajax_error_response();
+    }
+
+    die();
+}

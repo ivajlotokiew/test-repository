@@ -4,16 +4,37 @@
  * @returns {*}
  */
 function productBadge(product) {
-    let $mainWrap = jQuery('<div>', {'class': 'product-container', 'data-product_id': product.id});
+    let $mainWrap = jQuery('<div>', {'class': 'product-container', 'data-product-id': product.id});
+    let $secondWrap = jQuery('<div>', {'class': 'product-info-wrapper'});
     let $productWrap = jQuery('<div>', {'class': 'product-title', text: product.name});
     let $additionalInfoWrap = jQuery('<div>', {'class': 'additional-info'});
     let $productPrice = jQuery('<span>', {'class': 'product-price', text: product.price + 'Eur | '});
     let $categoryName = jQuery('<span>', {'class': 'product-category', text: product.category.name});
+    let $productActionsWrap = jQuery('<div>', {
+        class: 'actions-wrapper'
+    }).append(jQuery('<div>', {
+        'class': 'edit-product',
+        'data-product-id': product.id,
+        text: 'Edit product'
+    })).append(jQuery('<div>', {
+        'class': 'delete-product',
+        'data-product-id': product.id,
+        text: 'Delete product'
+    }));
+
+    let $threeDotsWrap = jQuery('<div>', {'class': 'img-wrapper'})
+        .append(jQuery('<img/>', {
+            'class': 'edit-product-img',
+            'src': siteUrl.pluginDir + '../public/images/three-dots.png',
+            'alt': 'Edit product'
+        })).append($productActionsWrap);
 
     $additionalInfoWrap.append($productPrice);
     $additionalInfoWrap.append($categoryName);
-    $mainWrap.append($productWrap);
-    $mainWrap.append($additionalInfoWrap);
+    $secondWrap.append($productWrap);
+    $secondWrap.append($additionalInfoWrap);
+    $mainWrap.append($secondWrap);
+    $mainWrap.append($threeDotsWrap);
 
     return $mainWrap;
 }

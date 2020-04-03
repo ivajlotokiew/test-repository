@@ -1,62 +1,3 @@
-
-<style>
-    .product-container {
-        /*border: 1px solid black;*/
-        border-radius: 5px;
-        background: rgb(238, 228, 202);
-        height: 100px;
-        margin-bottom: 5px;
-        padding-top: 15px;
-        cursor: pointer;
-    }
-
-    .product-container:hover {
-        background: rgb(230, 220, 195);;
-    }
-
-    .product-title {
-        font-size: 22px;
-        font-weight: bold;
-        margin-left: 15px;
-    }
-
-    .additional-info {
-        font-size: 15px;
-        font-weight: bold;
-        margin-left: 15px;
-    }
-
-    .select_logo {
-        display: inline-block;
-        height: 90px;
-        width: 90px;
-        border-radius: 5px;
-        background-color: #b5bcc2;
-        cursor: pointer;
-    }
-
-    .pull-right {
-        display: inline-block;
-        float: right;
-    }
-
-    .main-title {
-        font-size: 30px;
-        font-weight: 600;
-    }
-
-    .products-container {
-        height: 600px;
-        overflow: auto;
-
-    }
-
-    #bottom-position {
-        margin-top: 15px;
-    }
-
-</style>
-
 <div class="main-container">
     <div class="main-title">Products</div>
     <div class="products-container">
@@ -77,13 +18,14 @@
     let $productsContainer = jQuery('.products-container');
     let $productsWrapper = jQuery('.products-wrapper');
     let promise;
-    let $body = jQuery("body");
+    let $body = jQuery("<body>");
     let ajaxDataObj = {
         'action': 'get_all_products',
         'offset': 0,
         'length': 8
     };
     let ajaxCompleted = true;
+
     jQuery(window).on('load', function () {
 
         renderProducts(products);
@@ -97,12 +39,34 @@
                     ajaxCompleted = false;
                     ajaxDataObj.offset += 4;
                     ajaxDataObj.length = ajaxDataObj.offset + 4;
-                    getAllProducts();
+                    getNextProducts();
                 }
             });
         });
 
-        function getAllProducts() {
+        jQuery('.product-container').hover(
+            function () {
+                jQuery(this).find('.img-wrapper').show();
+            },
+            function () {
+                jQuery(this).find('.img-wrapper').hide();
+            });
+
+        jQuery('.img-wrapper').hover(
+            function () {
+                jQuery(this).find('.actions-wrapper').show();
+            },
+            function () {
+                jQuery(this).find('.actions-wrapper').hide();
+            }
+        );
+
+        $productsContainer.on('click', '.delete-product', function () {
+            let productId = jQuery(this).data("product-id");
+            deleteProduct(productId);
+        });
+
+        function getNextProducts() {
             promise = jQuery.ajax({
                 url: ajax_object.ajaxurl,
                 type: 'POST',
@@ -122,8 +86,8 @@
             });
         }
 
-        $productsContainer.on("click", ".product-container", function () {
-            let productId = jQuery(this).data("product_id");
+        $productsContainer.on("click", ".edit-product", function () {
+            let productId = jQuery(this).data("product-id");
             if (editedProducts.hasOwnProperty(productId)) {
                 formEditProduct(editedProducts[productId]);
             } else {
@@ -274,4 +238,24 @@
                 }
             )
     }
+
+    function deleteProduct(productId) {
+        jQuery.ajax({
+            url: ajax_object.ajaxurl,
+            type: 'POST',
+            dataType: 'Json',
+            data: {action: 'delete_product', 'id': productId},
+            success: function (response) {
+                let currentBadge = jQuery(".product-container[data-product-id='" + productId + "']");
+                if (currentBadge.length > 0) {
+                    currentBadge.hide();
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Status: " + textStatus);
+                alert("Error: " + errorThrown);
+            }
+        });
+    }
+
 </script>

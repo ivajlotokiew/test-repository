@@ -23,10 +23,12 @@ function showAdminContent($attributes, $content = null)
 function renderLoginRedirect() {
     $viewPath = dirname(__FILE__) . '/../views/redirect.phtml';
     $redirectTo = 'login';
+
     return combat_render_view($viewPath, $redirectTo);
 }
 
 function renderAccessDeniedPage() {
     $viewPath = dirname(__FILE__) . '/../views/403.phtml';
+
     return combat_render_view($viewPath);
 }
