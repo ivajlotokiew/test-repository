@@ -1,0 +1,20 @@
+{
+    "name": "products-online",
+    "description": "Plugin for online shopping",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "Ivaylo Tokiev",
+            "email": "ivaylo_tokiev@test.local"
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.5"
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        }
+    }
+}

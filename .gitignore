@@ -11,3 +11,5 @@
 /wp-content/themes/twentynineteen/package-lock.json
 /wp-content/plugins/combat-plugin/package-lock.json
 /wp-content/themes/twentytwenty/package-lock.json
+/wp-content/plugins/products-online/vendor
+/wp-content/plugins/products-online/composer.lock
