@@ -21,8 +21,8 @@ class CategoryService
             if ($result = $wpdb->get_results($stmt)) {
                 foreach ($result as $row) {
                     $categories[] = [
-                        "category_id" => $row->id,
-                        "category_name" => $row->name,
+                        "id" => $row->id,
+                        "name" => $row->name,
                     ];
                 }
             }

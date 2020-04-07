@@ -39,7 +39,7 @@ class ProductController extends BaseController
         return $this->getResponse()->json_success(StatusResponse::SUCCESS, $result);
     }
 
-    function getProduct(array $params)
+    function getProductAction(array $params)
     {
         $id = $params['id'];
         $service = new ProductService();
@@ -51,5 +51,33 @@ class ProductController extends BaseController
         }
 
         return $this->getResponse()->json_success(StatusResponse::SUCCESS, $result);
+    }
+
+    function deleteProductAction(array $params)
+    {
+        $id = $params['id'];
+
+        $service = new ProductService();
+        $result = $service->deleteProductById($id);
+
+        if (!$result) {
+            return $this->getResponse()->json_error(
+                StatusResponse::SERVER_ERROR, array("message " => "Failed to delete or there is no product with this id!"));
+        }
+
+        return $this->getResponse()->json_success(StatusResponse::SUCCESS, ['message' => 'Successfully deleted product!']);
+    }
+
+    function editProductAction(array $params)
+    {
+        $service = new ProductService();
+        $result = $service->editProduct($params);
+
+        if (!$result) {
+            return $this->getResponse()->json_error(
+                StatusResponse::SERVER_ERROR, array("message " => "Failed edit product!"));
+        }
+
+        return $this->getResponse()->json_success(StatusResponse::SUCCESS, ['message' => 'Successfully edited product!']);
     }
 }

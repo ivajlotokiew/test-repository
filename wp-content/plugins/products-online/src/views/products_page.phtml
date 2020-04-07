@@ -28,6 +28,9 @@
 
     jQuery(window).on('load', function () {
 
+        console.log('categories');
+        console.log(categories);
+
         renderProducts(products);
 
         $productsContainer.scroll(function () {
@@ -248,7 +251,7 @@
             url: ajax_object.ajaxurl,
             type: 'POST',
             dataType: 'Json',
-            data: {action: 'delete_product', 'id': productId},
+            data: {action: 'delete_product', 'id': productId, _ajax_nonce: ajax_object.nonce},
             success: function (response) {
                 let currentBadge = jQuery(".product-container[data-product-id='" + productId + "']");
                 if (currentBadge.length > 0) {
