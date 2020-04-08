@@ -11,7 +11,7 @@ require_once(dirname(__FILE__) . '/core/combat_page_ajax_methods.php');
 require_once(dirname(__FILE__) . '/core/combat_shortcode_methods.php');
 require_once(dirname(__FILE__) . '/core/autorization_shortcodes.php');
 
-add_shortcode('ADMIN', 'showAdminContentSSSSSS');
+add_shortcode('ADMIN', 'showAdminContentSSSSSSssss');
 
 add_shortcode('combat_home_page', 'combat_home_page');
 
