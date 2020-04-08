@@ -1,7 +1,5 @@
 <?php
 
-require_once( dirname( __FILE__ ) .  '/combat_http_client.php' );
-
 function combat_call_api($action, $params = array()) {
     if (!is_array($params)){
         $params = array($params);
