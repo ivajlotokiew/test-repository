@@ -14,7 +14,6 @@ function combat_call_api($action, $params = array()) {
     if (!isset($response)) {
         $response = array("code" => 500, "message" => "Server Error");
     }
-
     return generate_response($response);
 }
 
