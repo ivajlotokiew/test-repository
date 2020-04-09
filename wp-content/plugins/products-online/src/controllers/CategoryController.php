@@ -20,12 +20,12 @@ class CategoryController extends BaseController
         $result = $controller->getAllCategories();
 
         if (!$result) {
-            return $this->getResponse()->json_error(
+            return $this->getResponse()->response_error(
                 StatusResponse::SERVER_ERROR,
                 array("message " => "Could not return categories!"));
         }
 
-        return $this->getResponse()->json_success(StatusResponse::SUCCESS, $result);
+        return $this->getResponse()->response_success(StatusResponse::SUCCESS, $result);
     }
 
     function getProduct(array $params)
@@ -35,10 +35,10 @@ class CategoryController extends BaseController
         $result = $service->getProductById($id);
 
         if (!$result) {
-            return $this->getResponse()->json_error(
+            return $this->getResponse()->response_error(
                 StatusResponse::SERVER_ERROR, array("message " => "Could not return searched product!"));
         }
 
-        return $this->getResponse()->json_success(StatusResponse::SUCCESS, $result);
+        return $this->getResponse()->response_success(StatusResponse::SUCCESS, $result);
     }
 }

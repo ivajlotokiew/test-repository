@@ -31,12 +31,12 @@ class ProductController extends BaseController
         $result = $controller->getAllProducts($offset, $length);
 
         if (!$result) {
-            return $this->getResponse()->json_error(
+            return $this->getResponse()->response_error(
                 StatusResponse::SERVER_ERROR,
                 array("message " => "Could not return products!"));
         }
 
-        return $this->getResponse()->json_success(StatusResponse::SUCCESS, $result);
+        return $this->getResponse()->response_success(StatusResponse::SUCCESS, $result);
     }
 
     function getProductAction(array $params)
@@ -46,11 +46,11 @@ class ProductController extends BaseController
         $result = $service->getProductById($id);
 
         if (!$result) {
-            return $this->getResponse()->json_error(
+            return $this->getResponse()->response_error(
                 StatusResponse::SERVER_ERROR, array("message " => "Could not return searched product!"));
         }
 
-        return $this->getResponse()->json_success(StatusResponse::SUCCESS, $result);
+        return $this->getResponse()->response_success(StatusResponse::SUCCESS, $result);
     }
 
     function deleteProductAction(array $params)
@@ -61,11 +61,11 @@ class ProductController extends BaseController
         $result = $service->deleteProductById($id);
 
         if (!$result) {
-            return $this->getResponse()->json_error(
+            return $this->getResponse()->response_error(
                 StatusResponse::SERVER_ERROR, array("message " => "Failed to delete or there is no product with this id!"));
         }
 
-        return $this->getResponse()->json_success(StatusResponse::SUCCESS, ['message' => 'Successfully deleted product!']);
+        return $this->getResponse()->response_success(StatusResponse::SUCCESS, ['message' => 'Successfully deleted product!']);
     }
 
     function editProductAction(array $params)
@@ -74,10 +74,10 @@ class ProductController extends BaseController
         $result = $service->editProduct($params);
 
         if (!$result) {
-            return $this->getResponse()->json_error(
+            return $this->getResponse()->response_error(
                 StatusResponse::SERVER_ERROR, array("message " => "Failed edit product!"));
         }
 
-        return $this->getResponse()->json_success(StatusResponse::SUCCESS, ['message' => 'Successfully edited product!']);
+        return $this->getResponse()->response_success(StatusResponse::SUCCESS, ['message' => 'Successfully edited product!']);
     }
 }

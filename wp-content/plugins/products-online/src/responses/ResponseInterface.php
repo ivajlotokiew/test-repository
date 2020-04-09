@@ -11,7 +11,7 @@ namespace Src\Responses;
 
 interface ResponseInterface
 {
-    public function json_success($responseCode, $data = array());
+    public function response_success($responseCode, $data = array());
 
-    public function json_error($responseCode, $data = array());
+    public function response_error($responseCode, $data = array());
 }
