@@ -4,7 +4,7 @@
  */
 
 /*
- * Image header is forbidden.
+ * Image header is forbidden only for this page.
  */
 get_header(); ?>
 

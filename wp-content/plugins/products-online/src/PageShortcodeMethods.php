@@ -29,4 +29,18 @@ class PageShortcodeMethods
 
         return ProductsInit::products_render_view($view_path, $params);
     }
+
+//    add_shortcode('products_search_page', 'Src\PageShortcodeMethods::products_search_page')
+    static function products_search_page()
+    {
+        $params = [];
+        $search = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING);
+        $pController = new ProductController();
+        $products = $pController->getAllProductsAction(['search' => $search]);
+        $params['products'] = $products;
+
+        $view_path = dirname(__FILE__) . '/views/search-page.phtml';
+
+        return ProductsInit::products_render_view($view_path, $params);
+    }
 }

@@ -11,18 +11,24 @@ namespace Src\Services;
 
 class ProductService
 {
-    function getAllProducts($offset, $length)
+    function getAllProducts(array $params)
     {
         global $wpdb;
+        $offset = $params['offset'];
+        $length = $params['length'];
+        $search = $params['search'];
+
         try {
             $sql = 'SELECT C.name AS category_name,
                         P.id, P.name, P.description, P.price, P.category_id, P.created
                         FROM wp_products AS P
                           JOIN wp_categories AS C
                             ON P.category_id = C.id
-                        GROUP BY p.id
+                        WHERE (%s IS NULL 
+                        OR P.name LIKE CONCAT(\'%\', %s, \'%\'))
                         LIMIT %d, %d';
-            $stmt = $wpdb->prepare($sql, [$offset, $length]);
+
+            $stmt = $wpdb->prepare($sql, [$search, $search, $offset, $length]);
 
             $products = [];
             if ($result = $wpdb->get_results($stmt)) {
@@ -38,7 +44,11 @@ class ProductService
                 }
             }
 
-            return $products;
+            if (!$wpdb->last_error) {
+                return $products;
+            } else {
+                return $products;
+            }
         } catch (\Exception $ex) {
             return false;
         }
@@ -88,10 +98,9 @@ class ProductService
         $table = $wpdb->prefix . 'products';
 
         try {
-            return $wpdb->update( $table, $params, ['id' => $params['id']]);
+            return $wpdb->update($table, $params, ['id' => $params['id']]);
         } catch (\Exception $ex) {
             return false;
         }
     }
-
 }

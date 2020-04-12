@@ -25,17 +25,11 @@ class ProductsAjaxMethods
     {
 //        check_ajax_referer('title_example');
 
-        if (!isset($_REQUEST['offset'])) {
-            ProductsAjaxMethods::ajax_error_response('Missing offset parameter!');
-        }
-
-        if (!isset($_REQUEST['length'])) {
-            ProductsAjaxMethods::ajax_error_response('Missing length parameter!');
-        }
-
         $params = [];
-        $params['offset'] = $_REQUEST['offset'];
-        $params['length'] = $_REQUEST['length'];
+        $params['offset'] = isset($_REQUEST['offset']) ? $_REQUEST['offset'] : 0;
+        $params['length'] = isset($_REQUEST['length']) ? $_REQUEST['length'] : PHP_INT_MAX ;
+        $params['search'] = isset($_REQUEST['search']) ? $_REQUEST['search'] : NULL;
+
         $controller = new ProductController();
         $result = $controller->getAllProductsAction($params);
 
@@ -105,6 +99,15 @@ class ProductsAjaxMethods
         $controller = new ProductController();
         $result = $controller->editProductAction($params);
 
+        echo json_encode($result);
+
+        die();
+    }
+
+    //add_action('wp_ajax_search_products', 'Src\ProductsAjaxMethods::search_products');
+    static function search_products()
+    {
+        $result = $_GET['search'];
         echo json_encode($result);
 
         die();

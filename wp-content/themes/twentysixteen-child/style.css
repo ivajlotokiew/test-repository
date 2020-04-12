@@ -36,7 +36,7 @@ body.page-template-page-welcome-page > div#page {
 }
 
 body #masthead {
-    padding: 2.25em 0 50px 4.5455%;
+    padding: 0;
 }
 
 body #main {
@@ -100,6 +100,15 @@ div#primary.content-area {
     margin-bottom: 50px;
 }
 
+.site-branding, .site-header-menu, .header-image {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.site-header-menu {;
+    width: 100%;
+}
+
 #page .header-image {
     margin-bottom: 0;
 }
@@ -156,11 +165,11 @@ aside#content-bottom-widgets {
 
 #site-navigation.main-navigation {
     margin-right: 0;
+    margin-left: 0;
 }
 
-#site-navigation  #menu-main-menu.primary-menu {
+#site-navigation #menu-main-menu.primary-menu {
     background: #030710;
-    border-radius: 25px 0 0 25px;
 }
 
 #site-navigation > .menu-main-menu-container > ul li > a {
@@ -185,6 +194,15 @@ footer#colophon .widget-area {
     width: 100%;
 }
 
+.site-header-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-header-main > .site-branding {
+    margin: 40px 0 40px 88px;
+}
+
 .site-header-main > .site-branding .site-title > a {
     font-size: 45px;
     color: #030710;;
@@ -193,4 +211,49 @@ footer#colophon .widget-area {
 .no-sidebar .entry-content {
     margin-right: 5%;
     margin-left: 5%;
+}
+
+.main-navigation .primary-menu > li {
+    float: right;
+}
+
+header .main-navigation li a[href="#"], header .main-navigation li a[href="#"]:hover,
+header .main-navigation li a[href="javascript:void(0);"],
+header .main-navigation li a[href="javascript:void(0);"]:hover {
+    text-decoration: none !important;
+    cursor: text !important
+}
+
+.widget_text.custom-container {
+    width: 100%;
+    padding-top: 70px;
+    padding-right: 60px;
+}
+
+.textwidget.custom-html-widget {
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-branding-in-widget {
+    font-family: Montserrat, "Helvetica Neue", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #030710;
+    line-height: 1.2173913043;
+    text-decoration: none;
+}
+
+.site-title-in-widget > a {
+    box-shadow: none;
+}
+
+.bucket-icon {
+    width: 60px;
+    height: 60px;
+    background: url('assets/images/bucket.png') no-repeat 0 0;
+}
+
+input.spr-query {
+    border-radius: 16px;
 }

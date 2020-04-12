@@ -13,24 +13,28 @@ use Src\Services\ProductService;
 
 class ProductController extends BaseController
 {
+    /**
+     * @param array $params
+     * @return mixed
+     */
     function getAllProductsAction(array $params)
     {
         if (!isset($params['offset'])) {
-            $offset = 0;
-        } else {
-            $offset = $params['offset'];
+            $params['offset'] = 0;
         }
 
         if (!isset($params['length'])) {
-            $length = 10;
-        } else {
-            $length = $params['length'];
+            $params['length'] = PHP_INT_MAX;
+        }
+
+        if (!isset($params['search'])) {
+            $params['search'] = NULL;
         }
 
         $controller = new ProductService();
-        $result = $controller->getAllProducts($offset, $length);
+        $result = $controller->getAllProducts($params);
 
-        if (!$result) {
+        if ($result === false) {
             return $this->getResponse()->response_error(
                 StatusResponse::SERVER_ERROR,
                 array("message " => "Could not return products!"));

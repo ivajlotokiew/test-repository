@@ -25,6 +25,7 @@ function my_custom_login_stylesheet()
 //This loads the function above on the login page
 add_action('login_enqueue_scripts', 'my_custom_login_stylesheet');
 
+
 function login_error_override()
 {
     return 'Incorrect login details.';
@@ -172,3 +173,17 @@ function footer_widgets_init()
 }
 
 add_action('widgets_init', 'footer_widgets_init');
+
+
+function header_widgets_init()
+{
+    register_sidebar(array(
+        'name' => __('Header Widget', 'header_widget'),
+        'id' => 'custom-header-sidebar',
+        'description' => __('Appears at the header under the header menu'),
+        'before_widget' => '<div class="custom-container">',
+        'after_widget' => '</div>'
+    ));
+}
+
+add_action('widgets_init', 'header_widgets_init');
